@@ -1,0 +1,28 @@
+<lx-tabs>
+  <lx-tab heading="Preguntas">
+    <div class="p+">
+      <div class="card top-space" ng-repeat="question in questions">
+        <div class="p+">
+          <strong class="fs-headline display-block tc-red-900">
+            {{question.question}}
+          </strong>
+          <div class="paragraph fs-body-1 mt+">
+            <div class="p+">
+              <lx-radio-group>
+                <lx-radio-button name="question.select" value="{{answer}}" ng-model="question.select" ng-repeat="answer in question.answers">{{answer}}</lx-radio-button>
+              </lx-radio-group>
+            </div>
+          </div>
+        </div>
+        <div class="card__actions">
+          <lx-button lx-type="raised">Responder</lx-button>
+        </div>
+      </div>
+    </div>
+  </lx-tab>
+  <lx-tab heading="Resumen">
+    <div class="p+">
+      Hola mundo users
+    </div>
+  </lx-tab>
+</lx-tabs>
