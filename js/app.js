@@ -5,4 +5,8 @@ angular.module("FinalApp",["lumx","ngRoute"])
       controller: "MainController",
       templateUrl: "templates/home.html"
     })
+    .when('/login',{
+      controller: "LoginController",
+      templateUrl: "templates/login.html"
+    })
 });

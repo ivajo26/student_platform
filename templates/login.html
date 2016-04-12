@@ -1,0 +1,37 @@
+<div flex-container="row" flex-align="center">
+  <div flex-item="4">
+    <div class="p+">
+        <div class="card">
+            <div class="p+">
+                <strong class="fs-headline display-block">Iniciar Sesion</strong>
+                <div class="paragraph fs-body-1">
+                  <div class="p+ pt0">
+
+                    <lx-text-field lx-label="Company" lx-allow-clear="true" lx-fixed-label="true">
+                        <input type="text" ng-model="company">
+                    </lx-text-field>
+                    {{company}}
+                    <div flex-container="row" flex-gutter="24">
+                        <div flex-item>
+                            <lx-text-field lx-label="First name">
+                                <input type="text" ng-model="company">
+                            </lx-text-field>
+                        </div>
+
+                        <div flex-item>
+                            <lx-text-field lx-label="Last name">
+                                <input type="text" ng-model="company">
+                            </lx-text-field>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card__actions">
+                <lx-button lx-color="black" lx-type="flat">Yes</lx-button>
+                <lx-button lx-color="orange" lx-type="flat">No</lx-button>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

@@ -1,28 +1,40 @@
-<lx-tabs>
-  <lx-tab heading="Preguntas">
+
+<div flex-container="row" flex-align="center">
+  <div flex-item="9">
     <div class="p+">
-      <div class="card top-space" ng-repeat="question in questions">
+    <lx-icon lx-id="android" lx-size="xs" lx-color="grey" lx-type="circled"></lx-icon>
+    <lx-icon lx-id="android" lx-size="s" lx-color="blue" lx-type="circled"></lx-icon>
+    <lx-icon lx-id="android" lx-size="m" lx-color="green" lx-type="circled"></lx-icon>
+    <lx-icon lx-id="android" lx-size="l" lx-color="red" lx-type="circled"></lx-icon>
+    <lx-icon lx-id="android" lx-size="xl" lx-color="purple" lx-type="circled"></lx-icon>
+</div>
+    <lx-tabs>
+      <lx-tab heading="Preguntas">
         <div class="p+">
-          <strong class="fs-headline display-block tc-red-900">
-            {{question.question}}
-          </strong>
-          <div class="paragraph fs-body-1 mt+">
+          <div class="card top-space">
             <div class="p+">
-              <lx-radio-group>
-                <lx-radio-button name="question.select" value="{{answer}}" ng-model="question.select" ng-repeat="answer in question.answers">{{answer}}</lx-radio-button>
-              </lx-radio-group>
+              <strong class="fs-headline display-block tc-red-900">
+                ¿{{question.question}}?
+              </strong>
+              <div class="paragraph fs-body-1 mt+">
+                <div class="p+">
+                  <lx-radio-group>
+                    <lx-radio-button name="question.select" value="{{key}}" ng-model="question.select" ng-repeat="(key, answer) in question.answers">{{answer}}</lx-radio-button>
+                  </lx-radio-group>
+                </div>
+              </div>
+            </div>
+            <div class="card__actions">
+              <lx-button lx-type="raised" ng-click="validar()">Responder</lx-button>
             </div>
           </div>
         </div>
-        <div class="card__actions">
-          <lx-button lx-type="raised">Responder</lx-button>
+      </lx-tab>
+      <lx-tab heading="Resumen">
+        <div class="p+">
+          Hola mundo users
         </div>
-      </div>
-    </div>
-  </lx-tab>
-  <lx-tab heading="Resumen">
-    <div class="p+">
-      Hola mundo users
-    </div>
-  </lx-tab>
-</lx-tabs>
+      </lx-tab>
+    </lx-tabs>
+  </div>
+</div>
