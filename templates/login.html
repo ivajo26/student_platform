@@ -1,37 +1,24 @@
-<div flex-container="row" flex-align="center">
-  <div flex-item="4">
-    <div class="p+">
-        <div class="card">
-            <div class="p+">
-                <strong class="fs-headline display-block">Iniciar Sesion</strong>
-                <div class="paragraph fs-body-1">
-                  <div class="p+ pt0">
-
-                    <lx-text-field lx-label="Company" lx-allow-clear="true" lx-fixed-label="true">
-                        <input type="text" ng-model="company">
-                    </lx-text-field>
-                    {{company}}
-                    <div flex-container="row" flex-gutter="24">
-                        <div flex-item>
-                            <lx-text-field lx-label="First name">
-                                <input type="text" ng-model="company">
-                            </lx-text-field>
-                        </div>
-
-                        <div flex-item>
-                            <lx-text-field lx-label="Last name">
-                                <input type="text" ng-model="company">
-                            </lx-text-field>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card__actions">
-                <lx-button lx-color="black" lx-type="flat">Yes</lx-button>
-                <lx-button lx-color="orange" lx-type="flat">No</lx-button>
-            </div>
-        </div>
-    </div>
-  </div>
+<div layout='row' flex layout-align="center center" layout-margin="40">
+    <md-card flex-sm="45" flex-gt-sm="35" flex-gt-md="25">
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Iniciar Sesion</span>
+          </md-card-title-text>
+        </md-card-title>
+        <form ng-submit="inicar()">
+          <md-card-content>
+            <md-input-container>
+              <label>User</label>
+              <input ng-model="user">
+            </md-input-container>
+            <md-input-container>
+              <label>Password</label>
+              <input ng-model="password" type="password">
+            </md-input-container>
+          </md-card-content>
+          <md-card-actions layout="row" layout-align="end center">
+            <md-button class="md-primary" ng-click="iniciar()">Acceder</md-button>
+          </md-card-actions>
+        </form>
+      </md-card>
 </div>

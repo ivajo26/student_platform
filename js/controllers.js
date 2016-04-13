@@ -1,6 +1,6 @@
-angular.module("FinalApp")
-.controller("MainController", function($scope,  $http, LxNotificationService){
-
+angular.module("QuestionsApp")
+.controller("MainController", function($scope,  $http){
+  $scope.intents = 0;
   $http.get('/controllers/weekly/read_for_week.php')
     .success(function(data) {
       $scope.questions = data;
@@ -28,10 +28,28 @@ angular.module("FinalApp")
         }
       }
     }else{
-      LxNotificationService.error('Respuesta incorrecta');
+      $scope.intents += 1;
+
     }
   }
 })
-.controller('LoginController',function($scope,  $http){
-  $scope.company = '';
+.controller('LoginController',function($scope,$http, $mdToast, $rootScope){
+  $scope.user = '';
+  $scope.password = '';
+  $scope.iniciar = function() {
+      if ($scope.user != '' && $scope.password!='') {
+        $http.get('/controllers/user/user.php?username='+$scope.user+'&password='+$scope.password)
+        .success(function (data) {
+          if (data.status == true) {
+            $rootScope.userauth = {id: data.id, username:data.username, type: data.type};
+            $location.path(data.type);
+          }else {
+            $mdToast.show($mdToast.simple().textContent('Error al iniciar'));
+          }
+        })
+      }else{
+        $mdToast.show($mdToast.simple().textContent('Ingrese datos'));
+      }
+
+  }
 });
