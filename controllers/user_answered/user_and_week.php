@@ -2,7 +2,7 @@
 <?php
 require '../../models/user_answered.class.php';
 $user_answered = new UserAnswered();
-$json = $user_answered->read_for_week(1,1);
+$json = $user_answered->read_for_week(1);
 $newjson = [];
 foreach ($json as $row) {
 

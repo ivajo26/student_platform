@@ -1,0 +1,22 @@
+<div ng-cloak>
+  <md-content layout-padding='40'>
+    <md-tabs md-dynamic-height md-border-bottom>
+      <md-tab label="Preguntas">
+        <md-content class="md-padding">
+          <h3>¿{{question.question}}?</h3>
+          <h4>Intentos: {{intents}}</h4>
+          <md-radio-group ng-model="question.select">
+            <md-radio-button value="{{key}}" class="md-primary" ng-repeat="(key, answer) in question.answers">{{answer}}</md-radio-button>
+          </md-radio-group>
+          <md-button class="md-raised md-primary" ng-click="validar()">Responder</md-button>
+        </md-content>
+      </md-tab>
+      <!--<md-tab label="Resumen">
+        <md-content class="md-padding">
+
+
+        </md-content>
+      </md-tab>
+    </md-tabs>-->
+  </md-content>
+</div>

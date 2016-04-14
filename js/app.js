@@ -1,9 +1,9 @@
-angular.module("QuestionsApp",["ngMaterial","ngRoute"])
+angular.module("QuestionsApp",["ngMaterial","ngRoute", 'md.data.table'])
 .config(function($routeProvider){
   $routeProvider
     .when('/student',{
       controller: "StudentController",
-      templateUrl: "templates/studen.html"
+      templateUrl: "templates/student.html"
     })
     .when('/',{
       controller:"LoginController",
