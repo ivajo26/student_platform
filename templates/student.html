@@ -3,14 +3,22 @@
     <md-tabs md-dynamic-height md-border-bottom>
       <md-tab label="Preguntas">
         <md-content class="md-padding">
+          <div class="" ng-show="question != ''">
+
+
           <h3>¿{{question.question}}?</h3>
           <h4>Intentos: {{intents}}</h4>
           <md-radio-group ng-model="question.select">
             <md-radio-button value="{{key}}" class="md-primary" ng-repeat="(key, answer) in question.answers">{{answer}}</md-radio-button>
           </md-radio-group>
           <md-button class="md-raised md-primary" ng-click="validar()">Responder</md-button>
+          </div>
+          <div class="" ng-hide="question != ''">
+            Ya no hay mas preguntas por esta semana
+          </div>
         </md-content>
       </md-tab>
+
       <!--<md-tab label="Resumen">
         <md-content class="md-padding">
 

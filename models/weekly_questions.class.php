@@ -29,7 +29,7 @@ class WeeklyQuestions{
   }
 
   function addweek($start_date, $end_date){
-    $sql = $this->db->prepare("INSERT INTO questions(question) VALUES (?)");
+    $sql = $this->db->prepare("INSERT INTO weeks(start_date, end_date) VALUES (?,?)");
     $sql->bindParam(1, $start_date);
     $sql->bindParam(2, $end_date);
     $sql->execute();
@@ -87,6 +87,28 @@ class WeeklyQuestions{
         break;
     }
 
+  }
+
+  function questionforweek($week){
+    $sql = $this->db->prepare("SELECT question_id FROM weekly_questions WHERE week_id =?");
+    $sql->bindParam(1, $week);
+    $sql->execute();
+    return $sql->fetchAll();
+  }
+
+
+  function addwq($question_id, $week_id){
+    $sql = $this->db->prepare("INSERT INTO weekly_questions(question_id, week_id) VALUES (?,?)");
+    $sql->bindParam(1, $question_id);
+    $sql->bindParam(2, $week_id);
+    $sql->execute();
+  }
+
+  function delwq($question_id, $week_id){
+    $sql = $this->db->prepare("DELETE FROM weekly_questions WHERE question_id= ? AND week_id= ? ");
+    $sql->bindParam(1, $question_id);
+    $sql->bindParam(2, $week_id);
+    $sql->execute();
   }
 }
 ?>

@@ -13,6 +13,11 @@
               <tbody md-body>
                 <tr md-row ng-repeat="question in allquestions">
                   <td md-cell>{{question.question}}</td>
+                  <!--<td md-cell>
+                    <md-button class="md-fab md-mini" aria-label="Eat cake">
+                      <md-icon>delete</md-icon>
+                    </md-button>
+                  </td>-->
                 </tr>
               </tbody>
             </table>
@@ -22,8 +27,31 @@
       </md-tab>
       <md-tab label="Preguntas Semanas ">
         <md-content class="md-padding">
-
-
+          <md-input-container>
+            <label>Seleccione Semana</label>
+            <md-select ng-model="qforw" ng-change="qforwselect()">
+              <md-option ng-repeat="week in allweeks" value="{{week.id}}">
+                {{week.start_date}} - {{week.end_date}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+            <table md-table >
+              <thead md-head>
+                <tr md-row>
+                  <th md-column>Pregunta</th>
+                </tr>
+              </thead>
+              <tbody md-body>
+                <tr md-row ng-repeat="question in allquestions">
+                  <td md-cell>{{question.question}}</td>
+                  <td md-cell>
+                    <md-checkbox ng-checked="exists(question.id)" ng-click="toggle(question.id)">
+                {{ item }} <span ng-if="exists(item, selected)">selected</span>
+              </md-checkbox>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
         </md-content>
       </md-tab>
       <md-tab label="Semanas">
